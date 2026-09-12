@@ -1,0 +1,16 @@
+[project]
+name = "sinhala-mteb"
+version = "0.1.0"
+description = "Sinhala Massive Text Embedding Benchmark"
+requires-python = ">=3.10"
+
+dependencies = [
+    "mteb",
+    "datasets",
+    "sentence-transformers",
+    "scikit-learn",
+    "huggingface-hub",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
