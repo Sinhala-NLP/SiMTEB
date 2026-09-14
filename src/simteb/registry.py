@@ -2,16 +2,27 @@ from simteb.tasks.classification import (
     SOLDClassification,
 )
 
+from simteb.tasks.pair_classification import (
+    SinhalaHeadlinePrediction,
+)
+
 
 TASK_REGISTRY = {
     "SOLDClassification":
         SOLDClassification,
+
+    "SinhalaHeadlinePrediction":
+        SinhalaHeadlinePrediction,
 }
 
 
 CATEGORY_REGISTRY = {
     "Classification": [
         "SOLDClassification",
+    ],
+
+    "PairClassification": [
+        "SinhalaHeadlinePrediction",
     ],
 }
 
@@ -54,6 +65,7 @@ def get_tasks(
                 ]
             )
 
+        # Preserve order while removing duplicates.
         selected_names = list(
             dict.fromkeys(
                 selected_names
