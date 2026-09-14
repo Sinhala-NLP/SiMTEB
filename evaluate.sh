@@ -26,6 +26,7 @@ export OMP_NUM_THREADS=8
 # Hugging Face cache on scratch
 SCRATCH=/scratch/hpc/37/ranasint
 export HF_HOME="${SCRATCH}/hf_cache"
+export HF_TOKEN=
 
 # ---------------------------------------------------------
 # Project
