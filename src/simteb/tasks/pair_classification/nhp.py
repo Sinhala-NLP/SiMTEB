@@ -1,5 +1,7 @@
 import mteb
+
 from mteb.abstasks import AbsTaskPairClassification
+from mteb.types import PromptType
 
 
 class SinhalaHeadlinePrediction(
@@ -23,15 +25,13 @@ class SinhalaHeadlinePrediction(
         dataset={
             "path": "sinhala-nlp/SiMTEB-NHP",
 
-            # Replace with the commit SHA printed by
-            # prepare_nhp.py.
+            # Replace with your actual Hugging Face
+            # dataset revision SHA.
             "revision": "15cbde77537a2af61ab1d5c9807d77371d7d7e2a",
         },
 
         type="PairClassification",
 
-        # Current MTEB uses modality-based categories.
-        # Both inputs are text.
         category="t2t",
 
         modalities=[
@@ -46,7 +46,6 @@ class SinhalaHeadlinePrediction(
             "sin-Sinh",
         ],
 
-        # Standard main score for MTEB pair classification.
         main_score="max_ap",
 
         date=(
@@ -74,8 +73,12 @@ class SinhalaHeadlinePrediction(
     input2_column_name = "sentence2"
     label_column_name = "labels"
 
-    # Full article is treated as the document/passage side.
-    input1_prompt_type = "document"
+    # IMPORTANT:
+    # These must be PromptType enum values,
+    # not the strings "document" and "query".
+    #
+    # sentence1 = full article
+    # sentence2 = candidate headline
 
-    # Headline is treated as the query side.
-    input2_prompt_type = "query"
+    input1_prompt_type = PromptType.document
+    input2_prompt_type = PromptType.query
