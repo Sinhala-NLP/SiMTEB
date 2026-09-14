@@ -25,7 +25,7 @@ class SinhalaHeadlinePrediction(
 
             # Replace with the commit SHA printed by
             # prepare_nhp.py.
-            "revision": "REPLACE_WITH_HF_COMMIT_SHA",
+            "revision": "15cbde77537a2af61ab1d5c9807d77371d7d7e2a",
         },
 
         type="PairClassification",
