@@ -1,4 +1,4 @@
-from src.registry import get_tasks
+from src.simteb.registry import get_tasks
 
 
 SINHALA_MTEB_TASKS = [

@@ -4,8 +4,8 @@ import argparse
 
 import mteb
 
-from src.benchmark import get_benchmark_tasks
-from src.registry import get_tasks
+from src.simteb.benchmark import get_benchmark_tasks
+from src.simteb.registry import get_tasks
 
 
 def main():
