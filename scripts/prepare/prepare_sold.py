@@ -137,7 +137,7 @@ def main():
 
     print("\nExample")
     print("=======")
-    print(dataset["train"][0])
+    print(ascii(dataset["train"][0]))
 
     print(f"\nUploading to {TARGET_REPO}")
 
