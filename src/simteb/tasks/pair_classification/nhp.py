@@ -8,11 +8,13 @@ class SinhalaHeadlinePrediction(
 
     metadata = mteb.TaskMetadata(
         name="SinhalaHeadlinePrediction",
+
         description=(
             "Pair classification task for determining "
             "whether a candidate Sinhala news headline "
             "corresponds to a Sinhala news article."
         ),
+
         reference=(
             "https://huggingface.co/datasets/"
             "sinhala-nlp/sinhala-headline-prediction"
@@ -21,16 +23,16 @@ class SinhalaHeadlinePrediction(
         dataset={
             "path": "sinhala-nlp/SiMTEB-NHP",
 
-            # IMPORTANT:
-            # Replace this with the SHA printed by
-            # prepare_nhp.py after upload.
-            "revision": "15cbde77537a2af61ab1d5c9807d77371d7d7e2a",
+            # Replace with the commit SHA printed by
+            # prepare_nhp.py.
+            "revision": "REPLACE_WITH_HF_COMMIT_SHA",
         },
 
         type="PairClassification",
 
-        # Paragraph/article -> sentence/headline
-        category="p2s",
+        # Current MTEB uses modality-based categories.
+        # Both inputs are text.
+        category="t2t",
 
         modalities=[
             "text",
@@ -44,40 +46,36 @@ class SinhalaHeadlinePrediction(
             "sin-Sinh",
         ],
 
-        # Standard MTEB PairClassification metric
+        # Standard main score for MTEB pair classification.
         main_score="max_ap",
+
+        date=(
+            "2024-01-01",
+            "2024-12-31",
+        ),
 
         domains=[
             "News",
+            "Written",
         ],
 
-        task_subtypes=[
-            "Semantic Similarity",
-        ],
+        license=None,
 
         annotations_creators="derived",
 
-        # Fill these with the appropriate values
-        # once we finalise all benchmark metadata.
-        date=None,
-        license=None,
         dialect=[],
+
         sample_creation="found",
+
         bibtex_citation="",
     )
 
-    # These are already MTEB defaults, but I prefer
-    # making them explicit in SiMTEB.
     input1_column_name = "sentence1"
     input2_column_name = "sentence2"
     label_column_name = "labels"
 
-    # The relationship is asymmetric:
-    #
-    # sentence1 = full news article
-    # sentence2 = candidate headline
-    #
-    # This allows E5-style models to use passage/query
-    # behaviour where supported.
+    # Full article is treated as the document/passage side.
     input1_prompt_type = "document"
+
+    # Headline is treated as the query side.
     input2_prompt_type = "query"
