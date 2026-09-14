@@ -15,10 +15,10 @@ class SOLDClassification(AbsTaskClassification):
         eval_langs=["sin-Sinh"],
         eval_splits=["test"],
         dataset={
-            "path": "Sinhala-NLP/Sinhala-MTEB-SOLD",
+            "path": "sinhala-nlp/SiMTEB-SOLD",
 
             # Replace this after running prepare_sold.py.
-            "revision": "REPLACE_WITH_HF_COMMIT_SHA",
+            "revision": "c42e5cbd050d78ef73f056cb9a2de13e06166269",
         },
         prompt=(
             "Classify the Sinhala social-media post as "
