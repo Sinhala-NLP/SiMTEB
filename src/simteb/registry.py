@@ -1,8 +1,8 @@
-from simteb.tasks.classification import (
+from src.simteb.tasks.classification import (
     SOLDClassification,
 )
 
-from simteb.tasks.pair_classification import (
+from src.simteb.tasks.pair_classification import (
     SinhalaHeadlinePrediction,
 )
 

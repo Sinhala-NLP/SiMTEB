@@ -1,26 +1,13 @@
 from src.simteb.registry import get_tasks
 
 
-SINHALA_MTEB_TASKS = [
+SIMTEB_TASKS = [
     "SOLDClassification",
-
-    # Later:
-    # "SinhalaSentimentClassification",
-    # "SinhalaEmotionClassification",
-    #
-    # "NSinaHeadlineClustering",
-    # "NSinaArticleClustering",
-    #
-    # "MUSTSSTS",
-    #
-    # "FloresSinhalaEnglishBitextMining",
-    # "TamSiParaBitextMining",
-    # "PaliSinhalaBitextMining",
-    #
-    # "SinhalaEnglishQEDA",
-    # "SinhalaEnglishQEHTER",
+    "SinhalaHeadlinePrediction",
 ]
 
 
 def get_benchmark_tasks():
-    return get_tasks(names=SINHALA_MTEB_TASKS)
+    return get_tasks(
+        names=SIMTEB_TASKS
+    )
