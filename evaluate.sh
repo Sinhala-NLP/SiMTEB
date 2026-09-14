@@ -8,8 +8,6 @@
 #SBATCH --mail-type=FAIL
 #SBATCH --mail-user=t.ranasinghe@lancaster.ac.uk
 
-# Stop immediately if anything fails.
-set -euo pipefail
 
 
 # ============================================================
@@ -31,17 +29,14 @@ source activate \
 
 SCRATCH=/scratch/hpc/37/ranasint
 
-
 # ------------------------------------------------------------
 # Hugging Face
 # ------------------------------------------------------------
 
 export HF_HOME="${SCRATCH}/hf_cache"
-
 export HF_HUB_CACHE="${HF_HOME}/hub"
-
 export HF_DATASETS_CACHE="${HF_HOME}/datasets"
-
+export HF_TOKEN=
 
 # ------------------------------------------------------------
 # MTEB
@@ -58,7 +53,6 @@ export MTEB_CACHE="${SCRATCH}/mteb_cache"
 # ------------------------------------------------------------
 
 export XDG_CACHE_HOME="${SCRATCH}/cache"
-
 export TORCH_HOME="${SCRATCH}/torch_cache"
 
 
@@ -67,9 +61,7 @@ export TORCH_HOME="${SCRATCH}/torch_cache"
 # ------------------------------------------------------------
 
 export PYTHONIOENCODING=utf-8
-
 export TOKENIZERS_PARALLELISM=false
-
 export OMP_NUM_THREADS=8
 
 
